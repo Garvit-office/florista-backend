@@ -27,7 +27,7 @@ public class BookingController {
                 .getAuthentication()
                 .getPrincipal();
 
-        int gardenerId = Integer.parseInt(request.get("gardenerId"));
+        Long gardenerId = Long.parseLong(request.get("gardenerId"));
         String date = request.get("date");
 
         return bookingService.createBooking(gardenerId, email, date);

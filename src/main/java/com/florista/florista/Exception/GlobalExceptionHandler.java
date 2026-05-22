@@ -1,6 +1,6 @@
 package com.florista.florista.Exception;
 
-import com.florista.florista.Common.ApiResponse;
+import com.florista.florista.common.ApiResponse;
 import org.springframework.web.bind.annotation.*;
 
 @RestControllerAdvice

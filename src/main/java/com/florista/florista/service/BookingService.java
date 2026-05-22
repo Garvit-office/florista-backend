@@ -19,22 +19,18 @@ public class BookingService {
     }
 
     // ✅ Create booking (VALIDATED)
-    public Booking createBooking(int gardenerId, String userEmail, String date) {
-
+    public Booking createBooking(Long gardenerId, String userEmail, String date) {
         Gardener gardener = gardenerService.getGardenerById(gardenerId);
-
         if (gardener == null) {
             throw new RuntimeException("Gardener not found");
         }
-
         Booking booking = new Booking(
                 bookingCounter++,
-                gardenerId,
+                gardenerId.intValue(),
                 userEmail,
                 date,
-                "PENDING"   // 🔥 better status
+                "PENDING"
         );
-
         bookings.add(booking);
         return booking;
     }
