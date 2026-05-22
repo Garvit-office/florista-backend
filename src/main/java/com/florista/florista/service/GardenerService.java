@@ -1,33 +1,29 @@
 package com.florista.florista.service;
 
 import com.florista.florista.model.Gardener;
+import com.florista.florista.repository.GardenerRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
 
 @Service
 public class GardenerService {
 
-    private List<Gardener> gardeners = new ArrayList<>();
-    private int idCounter = 1;
+    private final GardenerRepository gardenerRepository;
 
-    // ✅ Add gardener (admin-like)
+    public GardenerService(GardenerRepository gardenerRepository) {
+        this.gardenerRepository = gardenerRepository;
+    }
+
     public Gardener addGardener(Gardener gardener) {
-        gardener.setId(idCounter++);
-        gardeners.add(gardener);
-        return gardener;
+        return gardenerRepository.save(gardener);
     }
 
-    // ✅ Get all gardeners
     public List<Gardener> getAllGardeners() {
-        return gardeners;
+        return gardenerRepository.findAll();
     }
 
-    // ✅ Get by ID
-    public Gardener getGardenerById(int id) {
-        return gardeners.stream()
-                .filter(g -> g.getId() == id)
-                .findFirst()
-                .orElse(null);
+    public Gardener getGardenerById(Long id) {
+        return gardenerRepository.findById(id).orElse(null);
     }
 }

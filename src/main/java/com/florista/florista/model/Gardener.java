@@ -1,23 +1,30 @@
 package com.florista.florista.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "gardeners")
 public class Gardener {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
     private String location;
     private double pricePerHour;
 
     public Gardener() {}
 
-    public Gardener(int id, String name, String location, double pricePerHour) {
+    public Gardener(Long id, String name, String location, double pricePerHour) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.pricePerHour = pricePerHour;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }

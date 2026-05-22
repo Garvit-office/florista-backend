@@ -18,17 +18,17 @@ public class FloristaApplication {
 	}
 
 
-	@Bean
-	public CommandLineRunner seedData(GardenerService gardenerService, UserService userService) {
-		return args -> {
-			// Seed Gardeners
-			gardenerService.addGardener(new Gardener(0, "Alice Green", "New York", 25.0));
-			gardenerService.addGardener(new Gardener(0, "Bob Bloom", "San Francisco", 30.0));
-			gardenerService.addGardener(new Gardener(0, "Charlie Leaf", "Chicago", 20.0));
+	   @Bean
+	   public CommandLineRunner seedData(GardenerService gardenerService, UserService userService) {
+		   return args -> {
+			   // Seed Gardeners
+			   gardenerService.addGardener(new com.florista.florista.model.Gardener(null, "Alice Green", "New York", 25.0));
+			   gardenerService.addGardener(new com.florista.florista.model.Gardener(null, "Bob Bloom", "San Francisco", 30.0));
+			   gardenerService.addGardener(new com.florista.florista.model.Gardener(null, "Charlie Leaf", "Chicago", 20.0));
 
-			// Seed Users
-			userService.register(new User("Test User", "test@example.com", "password123", "user"));
-			userService.register(new User("Jane Doe", "jane@example.com", "password456", "user"));
-		};
-	}
+			   // Seed Users
+			   userService.register(new com.florista.florista.model.User("Test User", "test@example.com", "password123", "user"));
+			   userService.register(new com.florista.florista.model.User("Jane Doe", "jane@example.com", "password456", "user"));
+		   };
+	   }
 }
