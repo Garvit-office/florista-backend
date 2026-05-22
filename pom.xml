@@ -38,7 +38,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		<!-- Removed extra closing dependency tag -->
+		</dependency>
 		<!-- MySQL Driver -->
 		<dependency>
 			<groupId>mysql</groupId>
